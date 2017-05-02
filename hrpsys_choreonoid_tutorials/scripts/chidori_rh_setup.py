@@ -16,6 +16,7 @@ class CHIDORI_HrpsysConfigurator(ChoreonoidHrpsysConfigurator):
             ['es', "EmergencyStopper"],
             ['rfu', "ReferenceForceUpdater"],
             ['ic', "ImpedanceController"],
+            ['wbms', "WholeBodyMasterSlave"],
             ['abc', "AutoBalancer"],
             ['st', "Stabilizer"],
             # ['tc', "TorqueController"],
