@@ -60,7 +60,7 @@ items:
                 configurationMode: "Use Configuration File"
                 AutoConnect: false
                 InstanceName: "HRP2JSKNT(Robot)0"
-                bodyPeriodicRate: 0.002
+                bodyPeriodicRate: 0.004
         - 
           id: 4
           name: "floor"

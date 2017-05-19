@@ -178,6 +178,12 @@ configure_file(${PROJECT_SOURCE_DIR}/config/HRP2JSKNT_RH_FLAT.cnoid.in ${PROJECT
 configure_file(${PROJECT_SOURCE_DIR}/config/HRP2JSKNT_FLAT.cnoid.in ${PROJECT_SOURCE_DIR}/config/HRP2JSKNT_FLAT.cnoid @ONLY)
 
 ###
+#HRP2JSK conid
+###
+configure_file(${PROJECT_SOURCE_DIR}/config/HRP2JSK_RH_FLAT.cnoid.in ${PROJECT_SOURCE_DIR}/config/HRP2JSK_RH_FLAT.cnoid @ONLY)
+#configure_file(${PROJECT_SOURCE_DIR}/config/HRP2JSK_FLAT.cnoid.in ${PROJECT_SOURCE_DIR}/config/HRP2JSK_FLAT.cnoid @ONLY)
+
+###
 # scene.yaml
 ###
 configure_file(${PROJECT_SOURCE_DIR}/config/flat.yaml.in ${PROJECT_SOURCE_DIR}/config/flat.yaml @ONLY)

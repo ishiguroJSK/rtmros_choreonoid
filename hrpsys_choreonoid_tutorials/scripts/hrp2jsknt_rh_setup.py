@@ -45,8 +45,8 @@ class HRP2JSKNT_HrpsysConfigurator(ChoreonoidJSKHRP2HrpsysConfigurator):
         self.startAutoBalancer()
         #self.ic_svc.startImpedanceController("larm")
         #self.ic_svc.startImpedanceController("rarm")
-        #time.sleep(5)
-        #self.startStabilizer()
+        time.sleep(3)# transition hot fix
+        self.startStabilizer()
 
 if __name__ == '__main__':
     hcf = HRP2JSKNT_HrpsysConfigurator("HRP2JSKNT")
