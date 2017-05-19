@@ -75,7 +75,9 @@ struct JAXONCustomizer
 static const char** getTargetModelNames()
 {
   static const char* names[] = {
+    "HRP2JSK",
     "HRP2JSKNT",
+    "HRP2JSKNTS",
     0 };
   return names;
 }
@@ -133,19 +135,27 @@ static BodyCustomizerHandle create(BodyHandle bodyHandle, const char* modelName)
 
   customizer->bodyHandle = bodyHandle;
   customizer->hasVirtualBushJoints = false;
-
+  //JAXON
   // customizer->springT  = 1.1e6; // N/m
   // customizer->dampingT = 1.1e3; // N/(m/s)
   // customizer->springR  = 2.5e3; // Nm / rad
-  // customizer->dampingR = 2.5;   // Nm / (rad/s)
-  // customizer->springT  = 1.0e6; // N/m
-  // customizer->dampingT = 1.0e3; // N/(m/s)
-  // customizer->springR  = 5.0e3; // Nm / rad
-  // customizer->dampingR = 30;   // Nm / (rad/s)
-  customizer->springT  = 1.1e6; // N/m
-  customizer->dampingT = 1.1e3; // N/(m/s)
-  customizer->springR  = 2.5e3; // Nm / rad
-  customizer->dampingR = 2.5;   // Nm / (rad/s)
+  // customizer->dampingR = 2.5;   // Nm / (rad/s) 
+  //HRP2 tmp ok
+  // customizer->springT  = 0.5e6; // N/m
+  // customizer->dampingT = 2.0e3; // N/(m/s)
+  // customizer->springR  = 0.5e3; // Nm / rad
+  // customizer->dampingR = 2.5e0;   // Nm / (rad/s)  
+  //HRP2 tmp ok2
+  // customizer->springT  = 0.5e6; // N/m
+  // customizer->dampingT = 3.0e3; // N/(m/s) //限界3.0e3
+  // customizer->springR  = 0.5e3; // Nm / rad
+  // customizer->dampingR = 8.0;   // Nm / (rad/s)  //限界8.0
+
+  customizer->springT  = 0.5e6; // N/m
+  customizer->dampingT = 3.0e3; // N/(m/s) //限界3.0e3
+  customizer->springR  = 0.5e3; // Nm / rad
+  customizer->dampingR = 8.0;   // Nm / (rad/s)  //限界8.0
+
 
   getVirtualbushJoints(customizer, bodyHandle);
 
@@ -168,12 +178,12 @@ static void setVirtualJointForces(BodyCustomizerHandle customizerHandle)
   JAXONCustomizer* customizer = static_cast<JAXONCustomizer*>(customizerHandle);
 
   if(customizer->hasVirtualBushJoints){
-  customizer->springT  = 1.1e6 * a; // N/m
-  customizer->dampingT = 1.1e3 * a; // N/(m/s)
-  customizer->springR  = 2.5e3 * a; // Nm / rad
-  customizer->dampingR = 2.5 * a; 
-  a -= 1e-6;
-  std::cerr<<"a:"<<a<<std::endl;
+  // customizer->springT  = 1.1e6 * a; // N/m
+  // customizer->dampingT = 1.1e3 * a; // N/(m/s)
+  // customizer->springR  = 2.5e3 * a; // Nm / rad
+  // customizer->dampingR = 2.5 * a; 
+  // a -= 1e-4;
+  //std::cerr<<"a:"<<a<<std::endl;
 
 
     for(int i=0; i < 2; ++i){
