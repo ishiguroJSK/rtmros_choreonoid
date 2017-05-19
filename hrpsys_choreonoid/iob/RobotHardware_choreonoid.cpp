@@ -49,7 +49,7 @@ RTC::ReturnCode_t RobotHardware_choreonoid::onInitialize()
     vec.resize(m_robot->numJoints());
     for(int i = 0; i < vec.size(); i++) {
       vec[i] =
-        m_robot->joint(i)->climit * m_robot->joint(i)->gearRatio * m_robot->joint(i)->torqueConst;
+        m_robot->joint(i)->climit * m_robot->joint(i)->gearRatio * m_robot->joint(i)->torqueConst * 1e1;
     }
   }
   iob_set_torque_limit(vec);

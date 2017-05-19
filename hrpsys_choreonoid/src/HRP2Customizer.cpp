@@ -138,10 +138,14 @@ static BodyCustomizerHandle create(BodyHandle bodyHandle, const char* modelName)
   // customizer->dampingT = 1.1e3; // N/(m/s)
   // customizer->springR  = 2.5e3; // Nm / rad
   // customizer->dampingR = 2.5;   // Nm / (rad/s)
-  customizer->springT  = 1.0e6; // N/m
-  customizer->dampingT = 1.0e3; // N/(m/s)
-  customizer->springR  = 5.0e3; // Nm / rad
-  customizer->dampingR = 30;   // Nm / (rad/s)
+  // customizer->springT  = 1.0e6; // N/m
+  // customizer->dampingT = 1.0e3; // N/(m/s)
+  // customizer->springR  = 5.0e3; // Nm / rad
+  // customizer->dampingR = 30;   // Nm / (rad/s)
+  customizer->springT  = 1.1e6; // N/m
+  customizer->dampingT = 1.1e3; // N/(m/s)
+  customizer->springR  = 2.5e3; // Nm / rad
+  customizer->dampingR = 2.5;   // Nm / (rad/s)
 
   getVirtualbushJoints(customizer, bodyHandle);
 
@@ -157,11 +161,21 @@ static void destroy(BodyCustomizerHandle customizerHandle)
   }
 }
 
+double a = 0.6;
+
 static void setVirtualJointForces(BodyCustomizerHandle customizerHandle)
 {
   JAXONCustomizer* customizer = static_cast<JAXONCustomizer*>(customizerHandle);
 
   if(customizer->hasVirtualBushJoints){
+  customizer->springT  = 1.1e6 * a; // N/m
+  customizer->dampingT = 1.1e3 * a; // N/(m/s)
+  customizer->springR  = 2.5e3 * a; // Nm / rad
+  customizer->dampingR = 2.5 * a; 
+  a -= 1e-6;
+  std::cerr<<"a:"<<a<<std::endl;
+
+
     for(int i=0; i < 2; ++i){
       JointValSet& trans = customizer->jointValSets[i][0];
       *(trans.torqueForcePtr) = - customizer->springT * (*trans.valuePtr) - customizer->dampingT * (*trans.velocityPtr);

@@ -21,7 +21,7 @@ items:
           data: 
             modelFile: "@HRP2_MODELS_DIR@/HRP2JSKNT_for_OpenHRP3/HRP2JSKNTmain_bush.wrl"
             currentBaseLink: "WAIST"
-            rootPosition: [ 0, 0, 0.718 ]
+            rootPosition: [ 0, 0, 0.66 ]
             rootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
@@ -31,7 +31,7 @@ items:
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [ 0, 0, 0.718 ]
+            initialRootPosition: [ 0, 0, 0.66 ]
             initialRootAttitude: [ 
               1, 0, 0, 
               0, 1, 0, 
